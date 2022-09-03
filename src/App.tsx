@@ -14,7 +14,7 @@ const outPutStyles = {
   flex: 1,
 };
 
-const replaceNewLinesWithParagraphTags = (text: string) => {
+const createMarkdown = (text: string) => {
   const paragraphArray = text.split('\n\n');
 
   const textWithHeadings = paragraphArray.map((paragraph: string) => {
@@ -48,7 +48,7 @@ function App() {
         onChange={(e) => setEnteredValue(e.target.value)}
         rows={5}
       />
-      <div style={outPutStyles}>{parse(replaceNewLinesWithParagraphTags(enteredValue))}</div>
+      <div style={outPutStyles}>{parse(createMarkdown(enteredValue))}</div>
     </div>
   );
 }
